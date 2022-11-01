@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR" th:fragment="dashboard (title, content, styles)">
+  <head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/styles/dashboard.css}">
+    
+
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" th:href="@{/styles/dashboard.css}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   	
+    <title>Dashboard <th:block th:include="${title}"> Recode </th:block> </title>
+   </head>
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bx-registered'></i>
+      <span class="logo_name">Recode PRO</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="#">
+          <i class='bx bx-grid-alt' ></i>
+          <span class="link_name">Dashboard</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Dashboard</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="cliente/home">
+            <i class='bx bx-user-circle'></i>
+            <span class="link_name">Cliente</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" th:href="@{cliente/home}">Cliente</a></li>
+          <li><a th:href="@{cliente/cadastrar}">Cadastrar</a></li>
+          <li><a th:href="@{cliente/home}">Listar</a></li>
+          <li><a th:href="@{cliente/home}">Detalhes</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a th:href="@{/permissao}">
+            <i class='bx bx-book-alt' ></i>
+            <span class="link_name">Permissao</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" th:href="@{/permissao}">Permissao</a></li>
+          <li><a th:href="@{/permissao/cadastrar}">Cadastrar</a></li>
+          <li><a th:href="@{/permissao}">Listar</a></li>
+          <li><a th:href="@{/permissao}">Detalhes</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a th:href="@{/destino}">
+            <i class='bx bx-trip'></i>
+            <span class="link_name">Destino</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" th:href="@{/destino}">Destino</a></li>
+          <li><a th:href="@{/destino}">Home</a></li>
+          <li><a th:href="@{destino/cadastrar}">Cadastrar</a></li>
+          <li><a th:href="@{/destino}">Detalhes</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a th:href="@{/promocao}">
+            <i class='bx bx-chart'></i>
+            <span class="link_name">Promocoes</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" th:href="@{/promocao}">Promocoes</a></li>
+          <li><a th:href="@{/promocao}">Home</a></li>
+          <li><a th:href="@{/promocao/cadastrar}">Cadastrar</a></li>
+          <li><a th:href="@{/promocao}">Detalhes</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cog' ></i>
+          <span class="link_name">Setting</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Setting</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+        <img th:src="@{img/perfil.png}" alt="profileImg">
+      </div>
+      <div class="name-job">
+        <div class="profile_name">User</div>
+        <div class="job">User</div>
+      </div>
+      <i class='bx bx-log-out' ></i>
+    </div>
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+      <span class="text">Drop Down Sidebar</span>
+    </div>
+    <div class="corpo" th:include="${content}">
+    </div>
+  </section>
+
+  <script th:src="@{/js/dashboard.js}">
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html th:replace="~{dashboard :: dashboard (~{::title}, ~{::main}, _)}">
+
+<head>
+	<title>[[${permissao.id == null ? 'Novo' : 'Editar'}]] Permissao</title>
+</head>
+
+<body>
+	<main>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card">
+					<!-- /.card-header -->
+					<!-- form start -->
+					<form method="POST" th:object="${permissao}">
+
+						<!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"> -->
+						<div class="card-body">
+							<input type="hidden" th:field="*{id}">
+
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label for="nome">Nome</label>
+										<input type="text" class="form-control"
+											placeholder="Gerente" th:field="*{nome}">
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /.card-body -->
+
+						<div class="card-footer">
+							<button type="submit" class="btn btn-primary">Salvar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>
