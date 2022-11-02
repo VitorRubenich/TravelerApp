@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html th:replace="~{dashboard :: dashboard}">
+<html th:replace="~{dashboard :: dashboard (~{::title}, ~{::main}, _)}">
 
 <head>
   <title>Detalhes do Cliente</title>
@@ -63,42 +63,7 @@
             </div>
             <!-- /.card -->
           </div>
-          <!-- /.col -->
-          <div class="col-md-9">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="card-title">Projetos</h5>
-              </div><!-- /.card-header -->
-              <div class="card-body">
-                <!-- The timeline -->
-                <div class="timeline">
-                  <!-- timeline item -->
-                  <div th:each="projeto : ${cliente.projetos}">
-                    <i class="fas fa-project-diagram bg-primary"></i>
-
-                    <div class="timeline-item">
-                      <span class="time">
-                        <i class="far fa-clock"></i> <span th:text="${#temporals.format(projeto.dataInicio)}"></span>
-                      </span>
-
-                      <h3 class="timeline-header" th:text="${projeto.nome}"></h3>
-
-                      <div class="timeline-body" th:text="${projeto.descricao}">
-                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                        quora plaxo ideeli hulu weebly balihoo...
-                      </div>
-                      <div class="timeline-footer">
-                        <a th:href="@{/projetos/{id} (id=${projeto.id})}" class="btn btn-primary btn-sm">Detalhes</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div><!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
+          
           <!-- /.col -->
         </div>
         <!-- /.row -->
@@ -106,8 +71,8 @@
     </div>
   </main>
 
-  <th:block th:fragment="scripts">
-    <script th:src="@{/js/avatar.min.js}"></script>
+
+    <!--<script th:src="@{/js/avatar.min.js}"></script> -->
     <script>
       const email = document.getElementById("email").innerText;
 
@@ -115,7 +80,7 @@
         'email': email
       });
     </script>
-  </th:block>
+
 </body>
 
 </html>

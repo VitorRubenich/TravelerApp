@@ -14,7 +14,7 @@ import com.vitorrubenich.traveler.model.UF;
 import com.vitorrubenich.traveler.repository.ClienteRepository;
 
 @Controller
-@RequestMapping("/cliente")
+@RequestMapping("/clientes")
 public class ClienteController {
 
 	@Autowired

@@ -11,6 +11,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" th:href="@{/styles/dashboard.css}">
 
+	<!-- fa-->
+	<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
    	
@@ -34,17 +36,17 @@
       </li>
       <li>
         <div class="iocn-link">
-          <a href="cliente/home">
+          <a th:href="@{/clientes}">
             <i class='bx bx-user-circle'></i>
             <span class="link_name">Cliente</span>
           </a>
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" th:href="@{cliente/home}">Cliente</a></li>
-          <li><a th:href="@{cliente/cadastrar}">Cadastrar</a></li>
-          <li><a th:href="@{cliente/home}">Listar</a></li>
-          <li><a th:href="@{cliente/home}">Detalhes</a></li>
+          <li><a class="link_name" th:href="@{/clientes}">Cliente</a></li>
+          <li><a th:href="@{/clientes/cadastrar}">Cadastrar</a></li>
+          <li><a th:href="@{/clientes}">Listar</a></li>
+          <li><a th:href="@{/clientes}">Detalhes</a></li>
         </ul>
       </li>
       <li>
