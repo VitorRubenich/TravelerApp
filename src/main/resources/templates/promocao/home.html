@@ -15,6 +15,7 @@
               <thead>
                 <tr>
                   <th>ID</th>
+                  <th>Img</th>
                   <th>Nome</th>
                   <th>Valor</th>
                   <th>% desconto</th>
@@ -25,6 +26,9 @@
               <tbody>
                 <tr th:each="promocao : ${promocoes}">
                   <td th:text="${promocao.id}">183</td>
+                  <td>
+                  	<img alt="Image" width="150px" height="150px" th:src="|/imagempromo/${promocao.id}|"/>
+                  </td>
                   <td th:text="${promocao.NomeDestino}">Desenvolvedor(a) Back End Jr.</td>
                   <td th:text="${promocao.valor}">R$</td>
                   <td th:text="${promocao.percDesconto}">R$</td>

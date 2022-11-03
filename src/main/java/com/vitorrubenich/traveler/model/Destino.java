@@ -7,5 +7,4 @@ import javax.persistence.Entity;
 public class Destino extends Viagem{
 	
 	
-	
 }

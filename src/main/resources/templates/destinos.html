@@ -23,101 +23,15 @@
             <h2 class="ta">Catálogo de Destinos</h2>
         </div>
         <div class="row">
-            <div class="col-sm">
+            <div class="col-sm" th:each="destino : ${destinos}">
                 <div class="card card-destinos" >
-                    <img src="img/bh-salvador.jpg" class="card-img-top" alt="Imagem bahia - salvador">
+                    <img th:src="|/imagemdestino/${destino.id}|" class="card-img-top" alt="Imagem bahia - salvador">
                     <div class="card-body">
-                      <h5 class="card-title">Salvador - Belo Horizonte</h5>
+                      <h5 class="card-title" th:text="${destino.NomeDestino}">Salvador - Belo Horizonte</h5>
                       <a href="#" class="btn btn-primary">Veja nossas promoções</a>
                     </div>
                   </div>
-                  <div class="card card-destinos" >
-                    <img src="img/destinos/veneza-italy.jpg" class="card-img-top" alt="Imagem bahia - salvador">
-                    <div class="card-body">
-                      <h5 class="card-title">Veneza - Itália</h5>
-                      <a href="#" class="btn btn-primary">Veja nossas promoções</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-sm">
-                <div class="card card-destinos" >
-                    <img src="img/rj-cristo.jpg" class="card-img-top" alt="imagem rj - cristo redentor">
-                    <div class="card-body">
-                      <h5 class="card-title">Rio de Janeiro - Capital</h5>
-                      <a href="#" class="btn btn-primary">Veja nossas promoções</a>
-                    </div>
-                  </div>
-                  <div class="card card-destinos" >
-                    <img src="img/destinos/porto-portugal.jpg" class="card-img-top" alt="imagem rj - cristo redentor">
-                    <div class="card-body">
-                      <h5 class="card-title">Porto - Portugal</h5>
-                      <a href="#" class="btn btn-primary">Veja nossas promoções</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-sm">
-                <div class="card card-destinos">
-                    <img src="img/pr-fox.jpg" class="card-img-top" alt="paraná fox do iguaçu">
-                    <div class="card-body">
-                      <h5 class="card-title">Fox do Iguaçu - Paraná</h5>
-                      <a href="#" class="btn btn-primary">Veja nossas promoções</a>
-                    </div>
-                  </div>
-                  <div class="card card-destinos" >
-                    <img src="img/destinos/morainelake-canada.jpg" class="card-img-top" alt="paraná fox do iguaçu">
-                    <div class="card-body">
-                      <h5 class="card-title">Moraine Lake - Canadá</h5>
-                      <a href="#" class="btn btn-primary">Veja nossas promoções</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-sm">
-                <div class="card card-destinos">
-                    <img src="img/destinos/machupichu-peru.jpg" class="card-img-top" alt="paraná fox do iguaçu">
-                    <div class="card-body">
-                      <h5 class="card-title">Peru - Machu Pichu</h5>
-                      <a href="#" class="btn btn-primary">Veja nossas promoções</a>
-                    </div>
-                  </div>
-                  <div class="card card-destinos" >
-                    <img src="img/destinos/bogota-col.jpg" class="card-img-top" alt="paraná fox do iguaçu">
-                    <div class="card-body">
-                      <h5 class="card-title">Bogotá - Colômbia</h5>
-                      <a href="#" class="btn btn-primary">Veja nossas promoções</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-sm">
-                <div class="card card-destinos">
-                    <img src="img/pr-fox.jpg" class="card-img-top" alt="paraná fox do iguaçu">
-                    <div class="card-body">
-                      <h5 class="card-title">Fox do Iguaçu - Paraná</h5>
-                      <a href="#" class="btn btn-primary">Veja nossas promoções</a>
-                    </div>
-                  </div>
-                  <div class="card card-destinos" >
-                    <img src="img/pr-fox.jpg" class="card-img-top" alt="paraná fox do iguaçu">
-                    <div class="card-body">
-                      <h5 class="card-title">Fox do Iguaçu - Paraná</h5>
-                      <a href="#" class="btn btn-primary">Veja nossas promoções</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-sm">
-                <div class="card card-destinos">
-                    <img src="img/destinos/ny-usa.jpg" class="card-img-top" alt="paraná fox do iguaçu">
-                    <div class="card-body">
-                      <h5 class="card-title">New York - USA</h5>
-                      <a href="#" class="btn btn-primary">Veja nossas promoções</a>
-                    </div>
-                  </div>
-                  <div class="card card-destinos" >
-                    <img src="img/destinos/berlim.jpg" class="card-img-top" alt="paraná fox do iguaçu">
-                    <div class="card-body">
-                      <h5 class="card-title">Berlim - Alemanha</h5>
-                      <a href="#" class="btn btn-primary">Veja nossas promoções</a>
-                    </div>
-                  </div>
+                  
             </div>
             
             

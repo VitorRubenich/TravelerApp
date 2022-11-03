@@ -1,11 +1,17 @@
 package com.vitorrubenich.traveler.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.vitorrubenich.traveler.model.Destino;
@@ -47,8 +53,13 @@ public class DestinoController {
     }
 
     @PostMapping({"/cadastrar", "/{id}/editar"})
-    public String salvar(Destino destino) {
-        destinoRepository.save(destino);
+    public String salvar(Destino destino, @RequestParam("fileDestino") MultipartFile file) {
+        try {
+			destino.setImagem(file.getBytes());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	destinoRepository.save(destino);
 
         return "redirect:/destino";
     }
@@ -58,5 +69,13 @@ public class DestinoController {
         destinoRepository.deleteById(id);
 
         return "redirect:/destino";
+    }
+    // servico para enviar imagem
+    
+    @GetMapping("/imagemdestino/{id}")
+    @ResponseBody
+    public byte[] exibirImagem(@PathVariable("id") Integer id) {
+    	Destino destino = destinoRepository.getOne(id);
+    	return destino.getImagem();
     }
 }

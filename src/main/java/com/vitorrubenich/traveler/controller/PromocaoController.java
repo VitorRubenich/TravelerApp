@@ -1,13 +1,20 @@
 package com.vitorrubenich.traveler.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.vitorrubenich.traveler.model.Destino;
 import com.vitorrubenich.traveler.model.Promocao;
 import com.vitorrubenich.traveler.repository.PromocaoRepository;
 
@@ -47,9 +54,14 @@ public class PromocaoController {
     }
 
     @PostMapping({"/cadastrar", "/{id}/editar"})
-    public String salvar(Promocao promocao) {
+    public String salvar(Promocao promocao, @RequestParam("fileDestino") MultipartFile file) {
     	promocao.setValorFinal(promocao.percDesconto);
-        promocaoRepository.save(promocao);
+    	try {
+			promocao.setImagem(file.getBytes());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	promocaoRepository.save(promocao);
 
         return "redirect:/promocao";
     }
@@ -59,5 +71,12 @@ public class PromocaoController {
         promocaoRepository.deleteById(id);
 
         return "redirect:/promocao";
+    }
+    
+    @GetMapping("/imagempromo/{id}")
+    @ResponseBody
+    public byte[] exibirImagem(@PathVariable("id") Integer id) {
+    	Promocao promo = promocaoRepository.getOne(id);
+    	return promo.getImagem();
     }
 }
