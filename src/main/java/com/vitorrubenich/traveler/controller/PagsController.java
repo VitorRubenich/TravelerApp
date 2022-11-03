@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.vitorrubenich.traveler.model.Destino;
+import com.vitorrubenich.traveler.model.Promocao;
 import com.vitorrubenich.traveler.repository.DestinoRepository;
+import com.vitorrubenich.traveler.repository.PromocaoRepository;
 
 @Controller
 @RequestMapping("/")
@@ -17,6 +19,9 @@ public class PagsController {
 	
 	@Autowired
     private DestinoRepository destinoRepository;
+	
+	@Autowired
+	private PromocaoRepository promocaoRepository;
 
 	@GetMapping("/index")
 	public String index() {
@@ -45,8 +50,15 @@ public class PagsController {
     	return destino.getImagem();
     }
 	
+	@GetMapping("/imagempromo/{id}")
+    @ResponseBody
+    public byte[] exibirImagemPromo(@PathVariable("id") Integer id) {
+    	Promocao promocao = promocaoRepository.getOne(id);
+    	return promocao.getImagem();
+    }
+	
 	@GetMapping("/promocoes")
-	public String promocoes() {
+	public String promocoes() { 
 		return "promocoes";
 	}
 	

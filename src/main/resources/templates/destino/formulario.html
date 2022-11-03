@@ -35,7 +35,10 @@
 									<label for="imagem" >Sua Imagem</label>
 									<input required class="form-control" type="file" id="imagem" name="fileDestino" accept="image/png, image/jpeg"/>								
 								</div>
-								
+								<div class="form-floating">
+								  <textarea required th:field="*{informacoes}" class="form-control" maxlength="400" placeholder="Informações do Destino" id="floatingTextarea"></textarea>
+								  <label  for="floatingTextarea">Informações</label>
+								</div>
 							</div>
 						</div>
 						<!-- /.card-body -->

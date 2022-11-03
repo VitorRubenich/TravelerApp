@@ -13,6 +13,7 @@ public abstract class Viagem extends Entidade {
 
 	@Column(nullable = false, length = 80)
 	public String NomeDestino;
+	
 
 	@Column(nullable = false)
 	public Double valor;
@@ -20,6 +21,9 @@ public abstract class Viagem extends Entidade {
 	@Lob
 	@Column(name = "imagem")
 	private byte[] imagem;
+	
+	@Column(nullable = false, length = 400)
+	public String informacoes;
 	
 	public String getNomeDestino() {
 		return NomeDestino;
@@ -45,12 +49,20 @@ public abstract class Viagem extends Entidade {
 		this.imagem = imagem;
 	}
 
+	public String getInformacoes() {
+		return informacoes;
+	}
+
+	public void setInformacoes(String informacoes) {
+		this.informacoes = informacoes;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + Arrays.hashCode(imagem);
-		result = prime * result + Objects.hash(NomeDestino, valor);
+		result = prime * result + Objects.hash(NomeDestino, informacoes, valor);
 		return result;
 	}
 
@@ -64,8 +76,9 @@ public abstract class Viagem extends Entidade {
 			return false;
 		Viagem other = (Viagem) obj;
 		return Objects.equals(NomeDestino, other.NomeDestino) && Arrays.equals(imagem, other.imagem)
-				&& Objects.equals(valor, other.valor);
+				&& Objects.equals(informacoes, other.informacoes) && Objects.equals(valor, other.valor);
 	}
-	
+
+		
 	
 }
