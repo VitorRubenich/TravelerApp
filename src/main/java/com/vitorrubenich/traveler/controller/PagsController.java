@@ -42,6 +42,20 @@ public class PagsController {
 	    return modelAndView;
 	}
 
+	@GetMapping("/promocoes")
+	public ModelAndView promocoes() {
+	    ModelAndView modelAndView = new ModelAndView("promocoes");
+
+	    modelAndView.addObject("promocoes", promocaoRepository.findAll());
+
+	    return modelAndView;
+	}
+	
+	
+	@GetMapping("/contato")
+	public String contato() {
+		return "contato";
+	}
 	
 	@GetMapping("/imagemdestino/{id}")
     @ResponseBody
@@ -56,16 +70,5 @@ public class PagsController {
     	Promocao promocao = promocaoRepository.getOne(id);
     	return promocao.getImagem();
     }
-	
-	@GetMapping("/promocoes")
-	public String promocoes() { 
-		return "promocoes";
-	}
-	
-	@GetMapping("/contato")
-	public String contato() {
-		return "contato";
-	}
-	
 
 }
