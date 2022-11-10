@@ -67,7 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/", "/index","/destinos","/contato","/promocoes","/imagempromo/**","/imagemdestino/**", "/img/**", "/styles/**", "/js/**").permitAll()
 		.anyRequest().permitAll() //authenticated() //permitAll()
 		);
-		http.formLogin().loginProcessingUrl("/userAuth")
+		http.formLogin()
         .loginPage("/login")
         .defaultSuccessUrl("/clientes")
         .permitAll();
