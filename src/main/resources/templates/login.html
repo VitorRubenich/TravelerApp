@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Recode Pro - Traveler | Log in</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="login-box">
+  <div class="login-logo">
+    <h1> Recode PRO</h1>
+  </div>
+  <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Preencha o login</p>
+
+		<!--
+      <div th:if="${param.error != null}" class="alert alert-danger">
+        <span th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></span>
+      </div>
+		-->
+      <form method="POST" th:action="@{/login}">
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="E-mail" name="username" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Senha" name="password" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember-me" name="remember-me">
+              <label for="remember-me">Lembrar-me</label>
+            </div>
+          </div>
+          
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
+
+</body>
+</html>

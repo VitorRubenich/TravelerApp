@@ -95,6 +95,20 @@
         </ul>
       </li>
       <li>
+        <div class="iocn-link">
+          <a th:href="@{/usuario}">
+            <i class='bx bx-chart'></i>
+            <span class="link_name">Usuario</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" th:href="@{/usuario}">Usuario</a></li>
+          <li><a th:href="@{/usuario}">Home</a></li>
+          <li><a th:href="@{/usuario/cadastrar}">Cadastrar</a></li>
+        </ul>
+      </li>
+      <li>
         <a href="#">
           <i class='bx bx-cog' ></i>
           <span class="link_name">Setting</span>
@@ -122,6 +136,7 @@
       <i class='bx bx-menu' ></i>
       <span class="text">Drop Down Sidebar</span>
     </div>
+    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
     <div class="corpo" th:include="${content}">
     </div>
   </section>

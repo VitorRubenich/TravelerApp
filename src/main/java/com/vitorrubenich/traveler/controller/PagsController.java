@@ -29,8 +29,10 @@ public class PagsController {
 	}
 	
 	@GetMapping("/layout")
-	public String layout() {
-		return "layout";
+	public ModelAndView layout() {
+		ModelAndView modelAndView = new ModelAndView("login");
+		
+		return modelAndView;
 	}
 	
 	@GetMapping("/destinos")
